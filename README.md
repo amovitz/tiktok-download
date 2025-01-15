@@ -1,4 +1,4 @@
-### TikTok Downloader
+# TikTok Downloader
 
 ## How to use
 
