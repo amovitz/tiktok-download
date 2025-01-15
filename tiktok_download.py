@@ -36,6 +36,8 @@ for v in j["Video"]["Videos"]["VideoList"]:
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
         print("\t\tOK")
+
+        time.sleep(TTL)
     except KeyboardInterrupt:
         print("Exiting...")
         os.remove(o)
@@ -46,5 +48,3 @@ for v in j["Video"]["Videos"]["VideoList"]:
             os.remove(o)
         except:
             pass
-
-    time.sleep(TTL)
