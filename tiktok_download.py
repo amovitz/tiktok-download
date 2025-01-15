@@ -36,6 +36,10 @@ for v in j["Video"]["Videos"]["VideoList"]:
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
         print("\t\tOK")
+    except KeyboardInterrupt:
+        print("Exiting...")
+        os.remove(o)
+        exit(0)
     except:
         print(f"\t\tERROR - {u}")
         try:
