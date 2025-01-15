@@ -4,6 +4,7 @@ import json, time, requests, os
 
 TTL = 5
 OVER = False
+TIMEOUT = (10 * 60)
 
 PATH = input("Path to user_data_tiktok.json? [./user_data_tiktok.json]: ")
 if PATH == "" or PATH == None:
@@ -29,7 +30,7 @@ for v in j["Video"]["Videos"]["VideoList"]:
             print("\t\tEXISTS")
             continue
     try:
-        with requests.get(u, stream=True) as r:
+        with requests.get(u, stream=True, timeout=TIMEOUT) as r:
             r.raise_for_status()
             with open(o, 'wb') as f:
                 for chunk in r.iter_content(chunk_size=8192):
